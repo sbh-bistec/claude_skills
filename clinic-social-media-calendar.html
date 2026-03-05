@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>30-Day Social Media Plan — Clinic Management Sri Lanka | April 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0B1120;
+  --card: #111B2E;
+  --card-hover: #162240;
+  --accent: #00D4AA;
+  --accent2: #7B61FF;
+  --accent3: #FF6B6B;
+  --linkedin: #0A66C2;
+  --instagram: #E1306C;
+  --facebook: #1877F2;
+  --text: #E2E8F0;
+  --text-dim: #64748B;
+  --border: #1E293B;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: radial-gradient(ellipse at 20% 20%, rgba(0,212,170,0.06) 0%, transparent 50%),
+              radial-gradient(ellipse at 80% 80%, rgba(123,97,255,0.05) 0%, transparent 50%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+/* HEADER */
+.header {
+  text-align: center;
+  padding: 50px 20px 40px;
+  position: relative;
+}
+
+.header::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 120px; height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  border-radius: 2px;
+}
+
+.header .tag {
+  display: inline-block;
+  background: linear-gradient(135deg, rgba(0,212,170,0.15), rgba(123,97,255,0.15));
+  border: 1px solid rgba(0,212,170,0.25);
+  padding: 6px 18px;
+  border-radius: 50px;
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.header h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(32px, 5vw, 56px);
+  line-height: 1.1;
+  background: linear-gradient(135deg, #fff 0%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 12px;
+}
+
+.header p {
+  color: var(--text-dim);
+  font-size: 16px;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* STATS BAR */
+.stats-bar {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 30px 0;
+  flex-wrap: wrap;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-num {
+  font-family: 'DM Serif Display', serif;
+  font-size: 36px;
+  color: var(--accent);
+}
+
+.stat-label {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-top: 4px;
+}
+
+/* FILTERS */
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px 0 30px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 8px 20px;
+  border-radius: 50px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-dim);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.filter-btn:hover, .filter-btn.active {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(0,212,170,0.08);
+}
+
+.filter-btn.li.active { border-color: var(--linkedin); color: var(--linkedin); background: rgba(10,102,194,0.1); }
+.filter-btn.ig.active { border-color: var(--instagram); color: var(--instagram); background: rgba(225,48,108,0.1); }
+.filter-btn.fb.active { border-color: var(--facebook); color: var(--facebook); background: rgba(24,119,242,0.1); }
+
+/* CALENDAR GRID */
+.cal-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.cal-header span {
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  padding: 8px;
+}
+
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+
+.day-cell {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  min-height: 130px;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(.4,0,.2,1);
+  position: relative;
+  overflow: hidden;
+}
+
+.day-cell::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 3px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.day-cell:hover {
+  background: var(--card-hover);
+  border-color: rgba(0,212,170,0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
+
+.day-cell:hover::before { opacity: 1; }
+
+.day-cell.empty {
+  background: transparent;
+  border-color: transparent;
+  cursor: default;
+}
+.day-cell.empty:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.day-num {
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 6px;
+  color: #fff;
+}
+
+.day-theme {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.day-title {
+  font-size: 12px;
+  color: var(--text);
+  line-height: 1.4;
+  font-weight: 500;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.platform-dots {
+  display: flex;
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  transition: transform 0.2s;
+}
+.dot:hover { transform: scale(1.4); }
+.dot.li { background: var(--linkedin); }
+.dot.ig { background: var(--instagram); }
+.dot.fb { background: var(--facebook); }
+
+/* TYPE BADGES */
+.type-badge {
+  display: inline-block;
+  font-size: 9px;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-top: 6px;
+}
+.type-badge.carousel { background: rgba(123,97,255,0.2); color: #a78bfa; }
+.type-badge.video { background: rgba(255,107,107,0.2); color: #fca5a5; }
+.type-badge.image { background: rgba(0,212,170,0.2); color: #5eead4; }
+.type-badge.story { background: rgba(251,191,36,0.2); color: #fcd34d; }
+.type-badge.poll { background: rgba(56,189,248,0.2); color: #7dd3fc; }
+.type-badge.text { background: rgba(148,163,184,0.2); color: #cbd5e1; }
+
+/* MODAL */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(8px);
+  z-index: 100;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.modal-overlay.show { display: flex; }
+
+.modal {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 680px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+  animation: modalIn 0.35s cubic-bezier(.4,0,.2,1);
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(30px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px; right: 16px;
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  font-size: 24px;
+  cursor: pointer;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+.modal-close:hover { background: rgba(255,255,255,0.1); color: #fff; }
+
+.modal-date {
+  font-size: 12px;
+  color: var(--text-dim);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.modal h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 28px;
+  margin-bottom: 6px;
+  color: #fff;
+}
+
+.modal-theme {
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.modal-section {
+  margin-bottom: 20px;
+}
+
+.modal-section h3 {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 8px;
+}
+
+.modal-section p, .modal-section li {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text);
+}
+
+.modal-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.modal-section ul li::before {
+  content: '→ ';
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.modal-platforms {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.modal-plat {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.modal-plat.li { background: rgba(10,102,194,0.15); color: #60a5fa; }
+.modal-plat.ig { background: rgba(225,48,108,0.15); color: #f472b6; }
+.modal-plat.fb { background: rgba(24,119,242,0.15); color: #60a5fa; }
+
+.before-after {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.ba-card {
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.ba-card.before {
+  background: rgba(255,107,107,0.1);
+  border: 1px solid rgba(255,107,107,0.2);
+}
+.ba-card.before h4 { color: var(--accent3); font-size: 11px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
+.ba-card.after {
+  background: rgba(0,212,170,0.1);
+  border: 1px solid rgba(0,212,170,0.2);
+}
+.ba-card.after h4 { color: var(--accent); font-size: 11px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
+
+.hashtags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.hashtag {
+  background: rgba(123,97,255,0.12);
+  color: var(--accent2);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* LEGEND */
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  padding: 30px 0;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text-dim);
+}
+
+.legend-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .cal-grid, .cal-header { grid-template-columns: repeat(7, 1fr); gap: 4px; }
+  .day-cell { padding: 8px; min-height: 100px; }
+  .day-title { font-size: 10px; }
+  .day-theme { font-size: 9px; }
+}
+
+@media (max-width: 600px) {
+  .cal-grid, .cal-header { grid-template-columns: repeat(2, 1fr); }
+  .day-cell.empty { display: none; }
+  .modal { padding: 24px; }
+  .before-after { grid-template-columns: 1fr; }
+  .stats-bar { gap: 20px; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <div class="tag">April 2026 · Sri Lanka</div>
+    <h1>Clinic Management<br>Social Media Calendar</h1>
+    <p>30 days of strategic content across LinkedIn, Instagram &amp; Facebook — transforming how Sri Lankan clinics connect with their audience.</p>
+  </div>
+
+  <div class="stats-bar">
+    <div class="stat"><div class="stat-num">30</div><div class="stat-label">Posts Planned</div></div>
+    <div class="stat"><div class="stat-num">3</div><div class="stat-label">Platforms</div></div>
+    <div class="stat"><div class="stat-num">6</div><div class="stat-label">Content Types</div></div>
+    <div class="stat"><div class="stat-num">5</div><div class="stat-label">Weekly Themes</div></div>
+  </div>
+
+  <div class="filters">
+    <button class="filter-btn active" data-filter="all">All Posts</button>
+    <button class="filter-btn li" data-filter="linkedin">LinkedIn</button>
+    <button class="filter-btn ig" data-filter="instagram">Instagram</button>
+    <button class="filter-btn fb" data-filter="facebook">Facebook</button>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot" style="background:var(--linkedin)"></div> LinkedIn</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--instagram)"></div> Instagram</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--facebook)"></div> Facebook</div>
+  </div>
+
+  <div class="cal-header">
+    <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+  </div>
+
+  <div class="cal-grid" id="calGrid"></div>
+</div>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" id="modal"></div>
+</div>
+
+<script>
+const posts = [
+  {
+    day: 1, weekday: "Wed", theme: "Before & After",
+    title: "Paper Chaos → Digital Clarity",
+    type: "carousel", platforms: ["li","ig","fb"],
+    caption: "Remember the days of overflowing patient files, lost records, and hours spent searching for a single lab report? That was clinic life before digital management. Today, Sri Lankan clinics are transforming with smart management systems — instant access, zero paper waste, total control.",
+    beforeAfter: { before: "Mountains of paper files, lost patient records, 30+ minutes to find one file, illegible handwriting causing errors.", after: "Cloud-based records, instant search, secure digital storage, zero paper waste, 100% accuracy." },
+    hashtags: ["#ClinicManagementSL", "#DigitalHealthSriLanka", "#BeforeAndAfter", "#HealthTech"],
+    cta: "Has your clinic made the switch? Share your story below 👇",
+    tips: "Use a split-screen visual showing messy paper files vs clean digital dashboard."
+  },
+  {
+    day: 2, weekday: "Thu", theme: "Quick Tip",
+    title: "5 Signs Your Clinic Needs a Management System",
+    type: "carousel", platforms: ["li","ig"],
+    caption: "If your front desk is drowning in appointment books, if patients wait 45+ minutes, if billing errors happen weekly — it's time. Here are 5 unmistakable signs your Sri Lankan clinic needs to upgrade.",
+    hashtags: ["#ClinicTips", "#HealthcareSL", "#PracticeManagement"],
+    cta: "Which sign resonates most with your clinic? Comment below!",
+    tips: "Create 5-slide Instagram carousel with bold numbers and minimal text per slide."
+  },
+  {
+    day: 3, weekday: "Fri", theme: "Staff Spotlight",
+    title: "Meet the Unsung Hero: The Clinic Receptionist",
+    type: "image", platforms: ["fb","ig"],
+    caption: "Behind every smoothly running clinic is a receptionist juggling 100 tasks. In Sri Lanka, our clinic receptionists handle patient queries in Sinhala, Tamil & English — all while managing appointments, billing, and walk-ins. Let's celebrate them! 🇱🇰",
+    hashtags: ["#ClinicHeroes", "#SriLankaHealthcare", "#StaffAppreciation"],
+    cta: "Tag a clinic receptionist who deserves recognition!",
+    tips: "Feature a warm, candid photo of a receptionist at work (with consent). Use local context."
+  },
+  {
+    day: 4, weekday: "Sat", theme: "Patient Story",
+    title: "\"I Used to Wait 3 Hours at My Channelling Centre\"",
+    type: "video", platforms: ["fb","ig"],
+    caption: "A patient from Colombo shares how their experience changed after their local clinic adopted a management system. From 3-hour waits to 15-minute visits. From lost prescriptions to a full digital health record. This is the future of healthcare in Sri Lanka.",
+    hashtags: ["#PatientExperience", "#ChannellingCentre", "#HealthcareSL"],
+    cta: "Share your own clinic experience in the comments!",
+    tips: "Short testimonial video (60-90 sec). Add Sinhala/Tamil subtitles for wider reach."
+  },
+  {
+    day: 5, weekday: "Sun", theme: "Industry Insight",
+    title: "Sri Lanka's Healthcare Digital Transformation 2026",
+    type: "text", platforms: ["li"],
+    caption: "Sri Lanka's private healthcare sector is at an inflection point. With over 5,000 private clinics nationwide, less than 20% use any form of digital management. The opportunity is massive. Here's why 2026 is the year of clinic digitization in Sri Lanka — and what forward-thinking practitioners are doing about it.",
+    hashtags: ["#DigitalHealth", "#SriLanka2026", "#HealthcareInnovation", "#LinkedInArticle"],
+    cta: "What barriers have you faced in digitizing your practice? Let's discuss.",
+    tips: "Write as a LinkedIn long-form article. Position yourself as a thought leader."
+  },
+  {
+    day: 6, weekday: "Mon", theme: "Before & After",
+    title: "Appointment Booking: Then vs Now",
+    type: "carousel", platforms: ["li","ig","fb"],
+    caption: "Then: Patients calling repeatedly, busy lines, double bookings, no-shows with no reminders. Now: Online booking, SMS confirmations in Sinhala/Tamil/English, automated reminders, real-time availability. The transformation is real.",
+    beforeAfter: { before: "Phone-tag with patients, double bookings daily, 30% no-show rate, frustrated staff & patients.", after: "24/7 online booking, automated SMS reminders, 90% reduction in no-shows, happy patients & staff." },
+    hashtags: ["#AppointmentManagement", "#ClinicSL", "#SmartBooking"],
+    cta: "How does your clinic handle appointments? Still using the old method?",
+    tips: "Animated before/after comparison — use a phone screen mockup."
+  },
+  {
+    day: 7, weekday: "Tue", theme: "Educational",
+    title: "What is a Clinic Management System? (Explained Simply)",
+    type: "video", platforms: ["fb","ig"],
+    caption: "Many clinic owners in Sri Lanka hear 'management system' and think it's complicated or expensive. Let's break it down in simple terms: it's your digital receptionist, accountant, and file cabinet — all in one. Here's how it works, step by step.",
+    hashtags: ["#CMS101", "#ClinicSoftware", "#HealthTechSL"],
+    cta: "Have questions about clinic software? Drop them below — we'll answer every one!",
+    tips: "Explainer video with simple animations. Keep it under 2 minutes. Add subtitles."
+  },
+  {
+    day: 8, weekday: "Wed", theme: "Before & After",
+    title: "Billing Nightmares → Seamless Payments",
+    type: "carousel", platforms: ["li","ig","fb"],
+    caption: "Before: Handwritten bills, calculation errors, patients questioning charges, end-of-day accounting headaches. After: Auto-generated invoices, transparent pricing, digital payment options, instant financial reports. No more billing drama.",
+    beforeAfter: { before: "Manual calculations, billing disputes, cash-only, hours of daily accounting reconciliation.", after: "Automated invoicing, multiple payment methods, real-time financial dashboard, tax-ready reports." },
+    hashtags: ["#ClinicBilling", "#DigitalPayments", "#SriLankaClinic"],
+    cta: "What's the biggest billing headache at your clinic?",
+    tips: "Show a crumpled receipt vs a clean digital invoice side by side."
+  },
+  {
+    day: 9, weekday: "Thu", theme: "Poll / Engagement",
+    title: "What Frustrates You Most About Visiting a Clinic?",
+    type: "poll", platforms: ["fb","ig","li"],
+    caption: "We want to hear from YOU! As patients in Sri Lanka, what's the #1 thing that frustrates you about visiting a private clinic? 🏥\n\nA) Long waiting times\nB) Lost medical records\nC) Confusing billing\nD) Hard to book appointments",
+    hashtags: ["#ClinicPoll", "#PatientVoice", "#HealthcareSL"],
+    cta: "Vote and share why in the comments!",
+    tips: "Use Instagram Stories poll, LinkedIn poll feature, and Facebook poll. Engage with every comment."
+  },
+  {
+    day: 10, weekday: "Fri", theme: "Case Study",
+    title: "How a Kandy Clinic Cut Wait Times by 70%",
+    type: "carousel", platforms: ["li","fb"],
+    caption: "A family clinic in Kandy was losing patients due to 2+ hour wait times. After implementing a management system with queue management and automated scheduling, wait times dropped from 2 hours to 25 minutes. Patient satisfaction soared. Here's exactly how they did it.",
+    hashtags: ["#CaseStudy", "#KandyClinic", "#HealthcareSuccess", "#ClinicManagement"],
+    cta: "Want similar results? DM us for a free consultation.",
+    tips: "Present as a story arc: Problem → Solution → Results with real metrics."
+  },
+  {
+    day: 11, weekday: "Sat", theme: "Weekend Wisdom",
+    title: "Dr. Perera's Saturday Insight: \"Technology Saved My Practice\"",
+    type: "image", platforms: ["fb","ig"],
+    caption: "\"I was working 14-hour days, 6 days a week — and still falling behind on admin. Since adopting clinic management software, I finish by 5 PM and actually see MORE patients. The system handles the rest.\" — Dr. Perera, GP, Colombo 7",
+    hashtags: ["#DoctorLife", "#SLDoctors", "#WorkLifeBalance", "#ClinicManagement"],
+    cta: "Doctors — what's your biggest time drain? Let us know below.",
+    tips: "Professional quote card with doctor's photo (stock or real with permission)."
+  },
+  {
+    day: 12, weekday: "Sun", theme: "Community",
+    title: "Celebrating Sri Lanka's Healthcare Workers 🇱🇰",
+    type: "image", platforms: ["fb","ig","li"],
+    caption: "From Jaffna to Matara, Sri Lanka's clinic staff show up every day with dedication and heart. This post is for every nurse, doctor, receptionist, lab tech, and pharmacist keeping our communities healthy. You are valued. 💚",
+    hashtags: ["#HealthcareHeroes", "#SriLanka", "#ThankYouHealthWorkers"],
+    cta: "Tag a healthcare worker who inspires you!",
+    tips: "Collage of diverse healthcare settings across Sri Lanka. Warm, authentic tone."
+  },
+  {
+    day: 13, weekday: "Mon", theme: "Before & After",
+    title: "Inventory Chaos → Smart Stock Management",
+    type: "carousel", platforms: ["li","ig","fb"],
+    caption: "Before: Running out of essential medicines mid-week, expired drugs on shelves, manual stock counting errors. After: Automated inventory alerts, expiry tracking, supplier auto-orders, zero stock-outs. Your pharmacy, finally organized.",
+    beforeAfter: { before: "Expired medicines unnoticed, emergency supplier runs, wasted budget on overstocking, manual counting.", after: "Auto reorder alerts, expiry date warnings, usage analytics, optimized stock levels, cost savings." },
+    hashtags: ["#PharmacyManagement", "#ClinicInventory", "#SmartHealthcare"],
+    cta: "Has your clinic ever run out of a critical medicine? Tell us about it.",
+    tips: "Show messy medicine shelf vs organized, labeled digital inventory dashboard."
+  },
+  {
+    day: 14, weekday: "Tue", theme: "Feature Highlight",
+    title: "Multi-Language Support: Sinhala, Tamil & English",
+    type: "video", platforms: ["ig","fb"],
+    caption: "Sri Lanka is beautifully multilingual — and your clinic management system should be too. Imagine patient records, appointment reminders, and billing all available in Sinhala, Tamil, and English. Inclusive healthcare starts with inclusive technology. 🇱🇰",
+    hashtags: ["#MultilingualSL", "#InclusiveHealthcare", "#SinhalasTamil", "#ClinicTech"],
+    cta: "Which language should be prioritized in healthcare tech? Share your thoughts!",
+    tips: "Short demo video showing language switching feature. Include all three scripts."
+  },
+  {
+    day: 15, weekday: "Wed", theme: "Mid-Month Review",
+    title: "15 Days of Clinic Transformation — What We've Learned",
+    type: "carousel", platforms: ["li","ig"],
+    caption: "Halfway through our 30-day journey! Here's what the conversation has revealed: wait times are the #1 frustration, most clinics still use paper, and doctors want better work-life balance. The solution? Smart clinic management. Here's a recap of key insights so far.",
+    hashtags: ["#MidMonthReview", "#ClinicManagement", "#HealthcareSL"],
+    cta: "What topic should we cover in the next 15 days? Tell us!",
+    tips: "Summary carousel with key stats and testimonials from the first 2 weeks."
+  },
+  {
+    day: 16, weekday: "Thu", theme: "Quick Tip",
+    title: "3 Ways to Reduce Patient No-Shows Today",
+    type: "carousel", platforms: ["li","ig","fb"],
+    caption: "Patient no-shows cost Sri Lankan clinics thousands of rupees monthly. Here are 3 proven strategies: 1) Automated SMS reminders 24 hours before, 2) Easy rescheduling via WhatsApp, 3) Small booking deposits for specialist appointments. Simple changes, massive impact.",
+    hashtags: ["#NoShowSolution", "#ClinicTips", "#HealthcareManagement"],
+    cta: "Which tip will you try first? Let us know!",
+    tips: "Bold numbered slides with icons. Make it actionable and practical."
+  },
+  {
+    day: 17, weekday: "Fri", theme: "Fun / Relatable",
+    title: "Clinic Staff vs The Appointment Book 😅",
+    type: "image", platforms: ["ig","fb"],
+    caption: "That moment when 3 patients are booked at the same time, the phone won't stop ringing, and someone just walked in asking 'can I just quickly see the doctor?' 😂 If your clinic staff relate to this, it might be time for an upgrade!",
+    hashtags: ["#ClinicHumor", "#RelatableHealthcare", "#SLClinicLife"],
+    cta: "Tag a colleague who deals with this daily! 😂",
+    tips: "Relatable meme or comic strip format. Keep it light and shareable."
+  },
+  {
+    day: 18, weekday: "Sat", theme: "Before & After",
+    title: "Patient Communication: Silence → Connection",
+    type: "carousel", platforms: ["li","ig","fb"],
+    caption: "Before: Patients had no updates between visits. Follow-ups were forgotten. Test results required another trip. After: Automated follow-up reminders, digital test results, appointment confirmations, health tips via SMS. Your patients feel cared for, always.",
+    beforeAfter: { before: "No follow-up communication, patients forget medications, lost between visits, no health education.", after: "Automated follow-ups, SMS health tips, digital test results, personalized care reminders." },
+    hashtags: ["#PatientCare", "#ClinicCommunication", "#DigitalHealth"],
+    cta: "How do you stay connected with your patients between visits?",
+    tips: "Show empty phone screen vs active patient communication dashboard."
+  },
+  {
+    day: 19, weekday: "Sun", theme: "Industry Insight",
+    title: "Why Sri Lankan Clinics Are Going Digital in 2026",
+    type: "text", platforms: ["li"],
+    caption: "Three converging trends are driving clinic digitization in Sri Lanka: 1) Rising patient expectations post-COVID, 2) Government push for digital health records, 3) Affordable cloud-based solutions designed for the Sri Lankan market. The question isn't IF your clinic will go digital — it's WHEN. Here's a deep dive into each trend and what it means for practice owners.",
+    hashtags: ["#DigitalTransformation", "#SriLankaHealth", "#FutureOfClinics"],
+    cta: "Are you ready for the digital shift? Share your readiness level: 1-10",
+    tips: "LinkedIn article format. Include data points and local market insights."
+  },
+  {
+    day: 20, weekday: "Mon", theme: "Before & After",
+    title: "Reporting: Guesswork → Data-Driven Decisions",
+    type: "carousel", platforms: ["li","ig","fb"],
+    caption: "Before: 'I think we're doing okay' — guessing revenue, patient numbers, and trends. After: Real-time dashboards showing daily patients, revenue trends, popular services, peak hours, and growth opportunities. Stop guessing. Start knowing.",
+    beforeAfter: { before: "No data on performance, gut-feel decisions, unclear revenue picture, can't identify growth areas.", after: "Real-time analytics, patient trend reports, revenue tracking, service performance insights." },
+    hashtags: ["#DataDrivenClinic", "#ClinicAnalytics", "#SmartDecisions"],
+    cta: "What's the one metric you wish you could track easily?",
+    tips: "Show a blank notebook vs a colorful analytics dashboard."
+  },
+  {
+    day: 21, weekday: "Tue", theme: "Testimonial Tuesday",
+    title: "\"Best Decision We Made for Our Clinic\" — Galle Practice",
+    type: "video", platforms: ["fb","ig","li"],
+    caption: "A multi-doctor practice in Galle shares their 6-month journey with clinic management software. Revenue up 25%, patient complaints down 60%, staff overtime eliminated. Real results from a real Sri Lankan clinic.",
+    hashtags: ["#TestimonialTuesday", "#GalleClinic", "#SuccessStory"],
+    cta: "Ready to write your own success story? DM us to get started.",
+    tips: "Interview-style video with the clinic owner. Show the actual workspace transformation."
+  },
+  {
+    day: 22, weekday: "Wed", theme: "Educational",
+    title: "How to Choose the Right Clinic Software for Sri Lanka",
+    type: "carousel", platforms: ["li","ig"],
+    caption: "Not all clinic software is created equal — especially for Sri Lanka. Here's what to look for: Local language support, rupee-based billing, SLMC compliance, local customer support, offline capability for areas with poor internet. A complete buyer's guide.",
+    hashtags: ["#BuyersGuide", "#ClinicSoftware", "#SriLankaHealth"],
+    cta: "What features are most important to you? Rank them in the comments!",
+    tips: "Checklist-style carousel with green checkmarks. Make it a saveable resource."
+  },
+  {
+    day: 23, weekday: "Thu", theme: "Staff Spotlight",
+    title: "From Filing Clerk to Digital Administrator: Nimal's Story",
+    type: "image", platforms: ["fb","ig"],
+    caption: "Nimal spent 8 years as a filing clerk at a Colombo clinic — sorting, filing, and retrieving paper records. When the clinic went digital, he became the IT-savvy digital administrator. Same dedication, new skills, bigger impact. Clinic management doesn't replace staff — it empowers them.",
+    hashtags: ["#StaffGrowth", "#DigitalSkills", "#ClinicTransformation"],
+    cta: "How has technology changed YOUR role? Share your story!",
+    tips: "Before/after portrait of the same person — filing papers vs working on a computer."
+  },
+  {
+    day: 24, weekday: "Fri", theme: "Quick Tip",
+    title: "HIPAA-Equivalent: Protecting Patient Data in Sri Lanka",
+    type: "carousel", platforms: ["li","ig","fb"],
+    caption: "Patient data security isn't optional — it's essential. Here's how Sri Lankan clinics should protect records: encrypted storage, role-based access, regular backups, audit trails, and compliance with the Personal Data Protection Act. Your patients trust you with their health data. Honor that trust.",
+    hashtags: ["#DataSecurity", "#PatientPrivacy", "#PDPA", "#ClinicSafety"],
+    cta: "Is your clinic's patient data secure? Take our quick self-assessment →",
+    tips: "Security-themed visuals with lock icons. Make it feel important but not scary."
+  },
+  {
+    day: 25, weekday: "Sat", theme: "Before & After",
+    title: "The Waiting Room: Frustration → Experience",
+    type: "carousel", platforms: ["ig","fb"],
+    caption: "Before: Overcrowded, no idea when your turn is, crying children, frustrated patients. After: Real-time queue display, estimated wait times on your phone, comfortable spacing, patients arrive just in time. The waiting room is now an experience, not an ordeal.",
+    beforeAfter: { before: "Overcrowded room, unknown wait times, patient frustration, complaints, walk-outs.", after: "Digital queue display, SMS when turn is near, reduced crowding, patient satisfaction soaring." },
+    hashtags: ["#WaitingRoom", "#PatientExperience", "#ClinicDesign"],
+    cta: "What's the longest you've waited at a clinic? 😬 Tell us below!",
+    tips: "Side-by-side photos of chaotic vs calm waiting room."
+  },
+  {
+    day: 26, weekday: "Sun", theme: "Community",
+    title: "Free Webinar: Digitizing Your Sri Lankan Clinic in 2026",
+    type: "image", platforms: ["li","fb","ig"],
+    caption: "Join us for a FREE live webinar on how to bring your clinic into the digital age — designed specifically for Sri Lankan healthcare practitioners. Learn about affordable solutions, implementation timelines, and real success stories. Limited seats available!",
+    hashtags: ["#FreeWebinar", "#ClinicDigitization", "#SriLankaHealth", "#HealthTech"],
+    cta: "Register now — link in bio! 🔗 Tag a doctor who needs to see this.",
+    tips: "Professional webinar announcement graphic with date, time, and speaker photos."
+  },
+  {
+    day: 27, weekday: "Mon", theme: "Before & After",
+    title: "Staff Burnout → Staff Balance",
+    type: "carousel", platforms: ["li","ig","fb"],
+    caption: "Before: Clinic staff working 12-hour days on repetitive tasks, high turnover, constant stress. After: Automated workflows handle the repetitive work, staff focus on patient care, leaving on time, job satisfaction up. Happy staff = Happy patients. It's that simple.",
+    beforeAfter: { before: "12-hour days, repetitive admin tasks, high staff turnover, burnout, poor morale.", after: "Automated workflows, focus on patient care, work-life balance, staff retention up 40%." },
+    hashtags: ["#StaffWellbeing", "#ClinicCulture", "#WorkLifeBalance"],
+    cta: "Clinic owners: What's your staff retention rate? Let's talk about it.",
+    tips: "Exhausted vs energized staff visual. Authentic, not stock-photo-ish."
+  },
+  {
+    day: 28, weekday: "Tue", theme: "Feature Highlight",
+    title: "Telemedicine Integration: See Patients From Anywhere",
+    type: "video", platforms: ["fb","ig","li"],
+    caption: "Rural Sri Lanka has limited access to specialist doctors. But what if a patient in Batticaloa could consult a specialist in Colombo — from their local clinic? Telemedicine integration in clinic management makes this possible. Healthcare without borders, within Sri Lanka.",
+    hashtags: ["#Telemedicine", "#RuralHealthcare", "#SriLankaClinic", "#HealthForAll"],
+    cta: "Would you use telemedicine for your patients? Yes or No — comment below!",
+    tips: "Split-screen video showing doctor and patient in different locations. Show the tech enabling it."
+  },
+  {
+    day: 29, weekday: "Wed", theme: "Results Recap",
+    title: "30 Days That Could Transform Your Clinic",
+    type: "carousel", platforms: ["li","ig","fb"],
+    caption: "Over the past 30 days, we've explored how clinic management systems transform every aspect of healthcare in Sri Lanka. From paper to digital, from chaos to clarity, from burnout to balance. Here are the top 10 transformations — and how your clinic can achieve them all.",
+    hashtags: ["#30DayJourney", "#ClinicTransformation", "#HealthcareSL"],
+    cta: "Which transformation excited you most? Comment with the number!",
+    tips: "Recap carousel with the most engaging posts. Include metrics and key takeaways."
+  },
+  {
+    day: 30, weekday: "Thu", theme: "Call to Action",
+    title: "Your Clinic's Digital Future Starts Today 🚀",
+    type: "video", platforms: ["li","ig","fb"],
+    caption: "30 days ago, we started a conversation about clinic management in Sri Lanka. The response has been incredible — hundreds of comments, shared stories, and clinics reaching out to transform. This isn't the end. It's the beginning. Your clinic's digital future starts with one decision: to take the first step. We're here to help you take it.",
+    hashtags: ["#StartToday", "#ClinicManagement", "#SriLankaHealthcare", "#DigitalFuture", "#HealthTech2026"],
+    cta: "Ready to transform? Book your FREE clinic assessment → Link in bio 🔗",
+    tips: "Powerful closing video montage of all 30 days. Emotional, inspiring, forward-looking."
+  }
+];
+
+const typeColors = {
+  carousel: "carousel", video: "video", image: "image",
+  story: "story", poll: "poll", text: "text"
+};
+
+// April 2026 starts on Wednesday (index 2, 0=Mon)
+const startOffset = 2;
+
+function renderCalendar(filter = "all") {
+  const grid = document.getElementById("calGrid");
+  grid.innerHTML = "";
+
+  // Empty cells before April 1
+  for (let i = 0; i < startOffset; i++) {
+    const cell = document.createElement("div");
+    cell.className = "day-cell empty";
+    grid.appendChild(cell);
+  }
+
+  posts.forEach(post => {
+    const cell = document.createElement("div");
+    const show = filter === "all" || post.platforms.includes(filter === "linkedin" ? "li" : filter === "instagram" ? "ig" : "fb");
+    cell.className = "day-cell";
+    cell.style.display = show ? "" : "none";
+    cell.style.borderTop = `3px solid ${post.platforms.includes("li") ? "var(--linkedin)" : post.platforms.includes("ig") ? "var(--instagram)" : "var(--facebook)"}`;
+
+    cell.innerHTML = `
+      <div class="day-num">${post.day}</div>
+      <div class="day-theme">${post.theme}</div>
+      <div class="day-title">${post.title}</div>
+      <span class="type-badge ${typeColors[post.type]}">${post.type}</span>
+      <div class="platform-dots">
+        ${post.platforms.map(p => `<div class="dot ${p}"></div>`).join("")}
+      </div>
+    `;
+
+    cell.addEventListener("click", () => openModal(post));
+    grid.appendChild(cell);
+  });
+
+  // Fill remaining cells to complete the grid
+  const totalCells = startOffset + 30;
+  const remainder = totalCells % 7;
+  if (remainder > 0) {
+    for (let i = 0; i < 7 - remainder; i++) {
+      const cell = document.createElement("div");
+      cell.className = "day-cell empty";
+      grid.appendChild(cell);
+    }
+  }
+}
+
+function openModal(post) {
+  const modal = document.getElementById("modal");
+  const overlay = document.getElementById("modalOverlay");
+
+  let baHtml = "";
+  if (post.beforeAfter) {
+    baHtml = `
+      <div class="modal-section">
+        <h3>Before & After Comparison</h3>
+        <div class="before-after">
+          <div class="ba-card before"><h4>❌ Before</h4>${post.beforeAfter.before}</div>
+          <div class="ba-card after"><h4>✅ After</h4>${post.beforeAfter.after}</div>
+        </div>
+      </div>
+    `;
+  }
+
+  modal.innerHTML = `
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div class="modal-date">April ${post.day}, 2026 · ${post.weekday}</div>
+    <h2>${post.title}</h2>
+    <div class="modal-theme">${post.theme} · ${post.type.toUpperCase()}</div>
+
+    <div class="modal-section">
+      <h3>Platforms</h3>
+      <div class="modal-platforms">
+        ${post.platforms.includes("li") ? '<div class="modal-plat li">🔵 LinkedIn</div>' : ""}
+        ${post.platforms.includes("ig") ? '<div class="modal-plat ig">🟣 Instagram</div>' : ""}
+        ${post.platforms.includes("fb") ? '<div class="modal-plat fb">🔵 Facebook</div>' : ""}
+      </div>
+    </div>
+
+    <div class="modal-section">
+      <h3>Caption / Copy</h3>
+      <p>${post.caption}</p>
+    </div>
+
+    ${baHtml}
+
+    <div class="modal-section">
+      <h3>Call to Action</h3>
+      <p>${post.cta}</p>
+    </div>
+
+    <div class="modal-section">
+      <h3>Creative Tips</h3>
+      <p>${post.tips}</p>
+    </div>
+
+    <div class="modal-section">
+      <h3>Hashtags</h3>
+      <div class="hashtags">
+        ${post.hashtags.map(h => `<span class="hashtag">${h}</span>`).join("")}
+      </div>
+    </div>
+  `;
+
+  overlay.classList.add("show");
+  document.body.style.overflow = "hidden";
+}
+
+function closeModal() {
+  document.getElementById("modalOverlay").classList.remove("show");
+  document.body.style.overflow = "";
+}
+
+document.getElementById("modalOverlay").addEventListener("click", (e) => {
+  if (e.target === e.currentTarget) closeModal();
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeModal();
+});
+
+// Filters
+document.querySelectorAll(".filter-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    renderCalendar(btn.dataset.filter);
+  });
+});
+
+renderCalendar();
+</script>
+</body>
+</html>
